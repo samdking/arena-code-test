@@ -22,4 +22,12 @@ RSpec.describe 'parser' do
         .to_stderr_from_any_process
     end
   end
+
+  context "when an invalid argument is passed" do
+    it "errors" do
+      expect { system %(bin/parser.rb /does/not/exist) }
+        .to output
+        .to_stderr_from_any_process
+    end
+  end
 end
