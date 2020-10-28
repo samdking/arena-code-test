@@ -1,7 +1,7 @@
 #!/usr/bin/env ruby
 
-require_relative "lib/webpages_list"
-require_relative "lib/log_parser"
+require_relative "../lib/webpages_list"
+require_relative "../lib/log_parser"
 
 if ARGV[0].nil?
   raise "You must a file to parse as the first argument"
