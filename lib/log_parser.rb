@@ -8,8 +8,4 @@ class LogParser
   def import
     File.open(file)
   end
-
-  def sort_highest_page_views
-    import.map(&:strip).group_by { |val| val }.map { |k, v| [k, v.size] }.sort_by { |k, v| [-v, k] }
-  end
 end
