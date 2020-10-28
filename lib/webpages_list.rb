@@ -12,4 +12,13 @@ class WebpagesList
       .map { |k, v| [k, v.size] }
       .sort_by { |k, v| [-v, k] }
   end
+
+  def sort_unique_page_views
+    contents
+      .map { |line| line.split(' ') }
+      .group_by { |url, ip| url }
+      .map { |url, occurences| [url, occurences.map(&:last)] }
+      .map { |url, ips| [url, ips.uniq.size] }
+      .sort_by { |k, v| [-v, k] }
+  end
 end
