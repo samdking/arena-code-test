@@ -7,7 +7,7 @@ class WebpagesList
 
   def sort_highest_page_views
     contents
-      .map(&:strip)
+      .map { |line| line.split(' ').first }
       .group_by { |val| val }
       .map { |k, v| [k, v.size] }
       .sort_by { |k, v| [-v, k] }
