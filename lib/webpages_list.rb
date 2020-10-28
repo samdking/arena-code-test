@@ -11,7 +11,7 @@ class WebpagesList
 
     contents
       .map { |line| line.split(' ').first }
-      .group_by { |val| val }
+      .group_by(&:itself)
       .map { |url, occurences| [url, occurences.size] }
       .sort_by { |k, v| [-v, k] }
       .map { |k, v| PageView.new(k, v) }
