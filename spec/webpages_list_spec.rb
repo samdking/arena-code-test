@@ -12,7 +12,8 @@ RSpec.describe WebpagesList do
       ] }
 
       it "returns the URL and its page views" do
-        expect(subject).to eq [["Bar", 1]]
+        expect(subject.first.url).to eq "Bar"
+        expect(subject.first.views).to eq 1
       end
     end
 
@@ -29,8 +30,8 @@ RSpec.describe WebpagesList do
       end
 
       it "returns them in alphabetical order" do
-        expect(subject.first.first).to eq "Bar"
-        expect(subject.last.first).to eq "Foo"
+        expect(subject.first.url).to eq "Bar"
+        expect(subject.last.url).to eq "Foo"
       end
     end
 
@@ -48,9 +49,9 @@ RSpec.describe WebpagesList do
 
       it "returns the URLs in order of occurences" do
         expect(subject).to eq [
-          ["Foo", 2],
-          ["Bar", 1],
-          ["Baz", 1],
+          PageView.new("Foo", 2),
+          PageView.new("Bar", 1),
+          PageView.new("Baz", 1),
         ]
       end
     end
@@ -74,8 +75,8 @@ RSpec.describe WebpagesList do
         end
 
         it "returns them in alphabetical order" do
-          expect(subject.first.first).to eq "Bar"
-          expect(subject.last.first).to eq "Foo"
+          expect(subject.first.url).to eq "Bar"
+          expect(subject.last.url).to eq "Foo"
         end
       end
     end
@@ -94,7 +95,8 @@ RSpec.describe WebpagesList do
         end
 
         it "returns the number of unique views" do
-          expect(subject).to eq [["Bar", 3]]
+          expect(subject.first.url).to eq "Bar"
+          expect(subject.first.views).to eq 3
         end
       end
     end
@@ -116,8 +118,8 @@ RSpec.describe WebpagesList do
 
       it "returns the URLs ordered by unique views, then alphabetical" do
         expect(subject).to eq [
-          ["Bar", 3],
-          ["Foo", 2],
+          PageView.new("Bar", 3),
+          PageView.new("Foo", 2),
         ]
       end
     end
