@@ -6,6 +6,6 @@ class LogParser
   end
 
   def import
-    File.open(file)
+    File.open(file).to_a
   end
 end
