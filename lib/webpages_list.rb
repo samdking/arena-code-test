@@ -8,7 +8,6 @@ class WebpagesList
   end
 
   def sort_highest_page_views
-
     contents
       .map { |line| line.split(' ').first }
       .group_by(&:itself)
