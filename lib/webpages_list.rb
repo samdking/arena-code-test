@@ -12,7 +12,7 @@ class WebpagesList
     contents
       .map { |line| line.split(' ').first }
       .group_by { |val| val }
-      .map { |k, v| [k, v.size] }
+      .map { |url, occurences| [url, occurences.size] }
       .sort_by { |k, v| [-v, k] }
       .map { |k, v| PageView.new(k, v) }
   end
