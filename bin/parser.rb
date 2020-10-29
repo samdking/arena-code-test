@@ -16,7 +16,7 @@ webpages_list = PageViewsList.new(file.import)
 puts "list of webpages with most page views ordered from most pages views to less page views:"
 
 webpages_list.sort_highest_page_views.each do |line|
-  puts "#{line.url} #{line.views} visits"
+  puts "#{line.url} #{line.views} visit#{line.views == 1? '' : 's'}"
 end
 
 puts ""
@@ -25,5 +25,5 @@ puts "list of webpages with most unique page views also ordered:"
 # list of webpages with most unique page views also ordered
 
 webpages_list.sort_unique_page_views.each do |line|
-  puts "#{line.url} #{line.views} unique visits"
+  puts "#{line.url} #{line.views} unique visit#{line.views == 1? '' : 's'}"
 end

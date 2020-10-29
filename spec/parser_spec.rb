@@ -13,6 +13,12 @@ RSpec.describe 'parser' do
         .not_to output
         .to_stderr_from_any_process
     end
+
+    it "uses the correct pluralisation" do
+      expect { system %(bin/parser.rb spec/fixtures/file.log) }
+        .not_to output(/1 (unique )?visits/)
+        .to_stdout_from_any_process
+    end
   end
 
   context "when no argument is passed" do
