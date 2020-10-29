@@ -22,7 +22,7 @@ class PageViewsList
   private
 
   def contents_by_url
-    contents
+    @contents_by_url ||= contents
       .map { |line| line.split(' ') }
       .reject { |parts| parts.size != 2 }
       .group_by { |url, ip| url }
