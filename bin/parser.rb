@@ -1,6 +1,6 @@
 #!/usr/bin/env ruby
 
-require_relative "../lib/webpages_list"
+require_relative "../lib/page_views_list"
 require_relative "../lib/log_parser"
 
 if ARGV[0].nil?
@@ -9,7 +9,7 @@ end
 
 file_from_input = ARGV[0]
 file = LogParser.new(file_from_input)
-webpages_list = WebpagesList.new(file.import)
+webpages_list = PageViewsList.new(file.import)
 
 # list of webpages with most page views ordered from most pages views to less page
 

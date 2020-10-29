@@ -1,10 +1,10 @@
 require 'rspec'
-require_relative '../lib/webpages_list'
+require_relative '../lib/page_views_list'
 
-RSpec.describe WebpagesList do
+RSpec.describe PageViewsList do
   describe "#sort_highest_page_views" do
     let(:contents) { [] }
-    subject { WebpagesList.new(contents).sort_highest_page_views }
+    subject { PageViewsList.new(contents).sort_highest_page_views }
 
     context "when there is a single record" do
       let(:contents) { [
@@ -59,7 +59,7 @@ RSpec.describe WebpagesList do
 
   describe "sort_unique_page_views" do
     let(:contents) { [] }
-    subject { WebpagesList.new(contents).sort_unique_page_views }
+    subject { PageViewsList.new(contents).sort_unique_page_views }
 
     context "when there are 4 unique URLs" do
       context "from 4 unique users" do

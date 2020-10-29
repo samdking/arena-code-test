@@ -1,6 +1,6 @@
 PageView = Struct.new(:url, :views)
 
-class WebpagesList
+class PageViewsList
   attr_accessor :contents
 
   def initialize(contents)
