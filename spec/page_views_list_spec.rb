@@ -30,8 +30,7 @@ RSpec.describe PageViewsList do
       end
 
       it "returns them in alphabetical order" do
-        expect(subject.first.url).to eq "Bar"
-        expect(subject.last.url).to eq "Foo"
+        expect(subject.map(&:url)).to eq %w[Bar Baz Fiz Foo]
       end
     end
 
@@ -88,8 +87,7 @@ RSpec.describe PageViewsList do
         end
 
         it "returns them in alphabetical order" do
-          expect(subject.first.url).to eq "Bar"
-          expect(subject.last.url).to eq "Foo"
+          expect(subject.map(&:url)).to eq %w[Bar Baz Fiz Foo]
         end
       end
     end
