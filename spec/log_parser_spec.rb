@@ -31,7 +31,7 @@ RSpec.describe LogParser do
       end
 
       it "counts each line" do
-        expect(subject.import.count).to eq 5
+        expect(subject.import.count).to eq 7
       end
     end
   end

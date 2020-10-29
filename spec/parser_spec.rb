@@ -3,13 +3,13 @@ require 'rspec'
 RSpec.describe 'parser' do
   context "when a valid file is passed as an argument" do
     it "is executable" do
-      expect { system %(bin/parser.rb log/webserver.log) }
+      expect { system %(bin/parser.rb spec/fixtures/file.log) }
         .to output
         .to_stdout_from_any_process
     end
 
     it "runs without error" do
-      expect { system %(bin/parser.rb log/webserver.log) }
+      expect { system %(bin/parser.rb spec/fixtures/file.log) }
         .not_to output
         .to_stderr_from_any_process
     end
