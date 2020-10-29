@@ -55,6 +55,19 @@ RSpec.describe PageViewsList do
         ]
       end
     end
+
+    context "when there is a malformed entry" do
+      let(:contents) { [
+        'Bar 139.204.200.167',
+        'Foo 248.133.146.13',
+        'whoops',
+        'Baz 244.48.38.123',
+      ] }
+
+      it "ignores the malformed entry" do
+        expect(subject.count).to eq 3
+      end
+    end
   end
 
   describe "sort_unique_page_views" do

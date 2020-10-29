@@ -24,6 +24,7 @@ class PageViewsList
   def contents_by_url
     contents
       .map { |line| line.split(' ') }
+      .reject { |parts| parts.size != 2 }
       .group_by { |url, ip| url }
       .map { |url, views| [url, views.map(&:last)] }
   end
